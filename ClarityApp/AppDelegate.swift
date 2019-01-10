@@ -15,6 +15,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        let queue = DispatchQueue(label: "timetracker")
+        queue.async {
+            let timeTracker = TimeTracker()
+            timeTracker.run()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

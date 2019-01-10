@@ -1,0 +1,6 @@
+framework module Pods_ClarityApp {
+  umbrella header "Pods-ClarityApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
