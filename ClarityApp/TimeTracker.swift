@@ -47,7 +47,7 @@ class TimeTracker {
         var window: CFTypeRef?
         var err = AXUIElementCopyAttributeValue(appElem, kAXFocusedWindowAttribute as CFString, &window)
         if err != AXError.success {
-            print("error")
+            print("get focused window error")
             return nil
         }
         print("window", window!)

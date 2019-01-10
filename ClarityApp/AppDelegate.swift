@@ -15,11 +15,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        let queue = DispatchQueue(label: "timetracker")
+        let queue = DispatchQueue(label: "com.co-ding.clarityapp", qos: .unspecified, attributes: .concurrent)
         queue.async {
             let timeTracker = TimeTracker()
             timeTracker.run()
         }
+        queue.async {
+            let server = Server()
+            server.run(port: 9877)
+        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
