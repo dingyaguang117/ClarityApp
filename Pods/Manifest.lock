@@ -1,16 +1,20 @@
 PODS:
+  - HandyJSON (4.2.1)
   - Swifter (1.4.5)
 
 DEPENDENCIES:
+  - HandyJSON (~> 4.2.0)
   - Swifter (~> 1.4.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - HandyJSON
     - Swifter
 
 SPEC CHECKSUMS:
+  HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
   Swifter: eb2bc1d192a1c09169c7fefd01971565fa940521
 
-PODFILE CHECKSUM: 5945463a45d3a0a0da7326c8fc0467bbea001109
+PODFILE CHECKSUM: 568828f78ee80e8591eae82ced8e0b16dfeb9d5e
 
 COCOAPODS: 1.5.3

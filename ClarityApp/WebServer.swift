@@ -8,6 +8,7 @@
 
 import Swifter
 import Dispatch
+import RealmSwift
 
 class Server {
     let server : HttpServer
@@ -15,8 +16,20 @@ class Server {
     init() {
         self.server = HttpServer()
         self.server["/status"] = { request in
-            var data: [String : Any] = ["code": 0, "data": []]
-            return HttpResponse.ok(.json(data as AnyObject))
+            var query = Dictionary<String, String>(uniqueKeysWithValues: request.queryParams)
+            let start = query["start"]
+            let end = query["end"]
+            
+            let realm = try! Realm()
+            var items = realm.objects(StatusLog.self).filter("start >= %@", Int(start ?? "0"))
+            
+            var data = [Any]()
+            for item in items {
+                data.append(item.toJSON())
+            }
+            
+            var result: [String : Any] = ["code": 0, "data": data]
+            return HttpResponse.ok(.json(result as AnyObject))
         }
     }
     

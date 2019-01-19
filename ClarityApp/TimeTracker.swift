@@ -7,18 +7,30 @@
 //
 import AppKit
 import Foundation
+import RealmSwift
+
 
 struct SystemStatus {
-    var bundleId    : String?
-    var appName     : String?
-    var appVersion  : String?
-    var windowTitle : String?
-    var idle        : Int?
-    var osUsername  : String?
-    var machineName : String?
+    var appId    : String
+    var appName     : String
+    var appVersion  : String
+    var windowTitle : String
+    var idle        : Int32
+
+    
+    init () {
+        self.appId = ""
+        self.appName = ""
+        self.appVersion = ""
+        self.windowTitle = ""
+        self.idle = 0
+    }
 }
 
 class TimeTracker {
+    var lastLog : StatusLog?
+    let realm = try! Realm()
+    
     func inspect() -> SystemStatus? {
         var status : SystemStatus = SystemStatus()
         
@@ -26,8 +38,8 @@ class TimeTracker {
         let app = NSWorkspace.shared.frontmostApplication
         let pid = app!.processIdentifier
         
-        status.bundleId = app?.bundleIdentifier
-        status.appName = app?.localizedName
+        status.appId = app?.bundleIdentifier ?? ""
+        status.appName = app?.localizedName ?? ""
 
         // See if we have accessibility permissions, and if not, prompt the user to
         // visit System Preferences.
@@ -50,7 +62,7 @@ class TimeTracker {
             print("get focused window error")
             return nil
         }
-        print("window", window!)
+        // print("window", window!)
         // Finally, get the title of the frontmost window.
         var title : CFTypeRef?
         err = AXUIElementCopyAttributeValue(window as! AXUIElement, kAXTitleAttribute as CFString, &title)
@@ -63,10 +75,48 @@ class TimeTracker {
         return status
     }
     
+    func storeLog(_ log: StatusLog){
+        try! realm.write {
+            print("write log")
+            realm.add(log)
+        }
+
+    }
+    
+    func log(status : SystemStatus) {
+        let timestampNow = Int32(Date().timeIntervalSince1970)
+        if lastLog == nil {
+            lastLog = StatusLog()
+            lastLog?.appId = status.appId
+            lastLog?.appName = status.appName
+            lastLog?.appVersion = status.appVersion
+            lastLog?.windowTitle = status.windowTitle
+            lastLog!.start = timestampNow
+            return
+        }
+
+        if(lastLog!.appId != status.appId) {
+            lastLog!.end = timestampNow
+            lastLog!.duration = lastLog!.end - lastLog!.start
+            storeLog(lastLog!)
+            lastLog = StatusLog()
+            lastLog?.appId = status.appId
+            lastLog?.appName = status.appName
+            lastLog?.appVersion = status.appVersion
+            lastLog?.windowTitle = status.windowTitle
+            lastLog!.start = timestampNow
+        }
+    }
+    
     func run() {
+        print(realm.configuration.fileURL ?? "")
         while true {
             var status = inspect()
-            print(status)
+//            print(status)
+            if(status != nil) {
+                log(status: status!)
+            }
+            
             sleep(1)
         }
     }

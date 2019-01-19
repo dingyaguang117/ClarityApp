@@ -7,5 +7,5 @@ target 'ClarityApp' do
 
   # Pods for ClarityApp
   pod 'Swifter', '~> 1.4.5'
-#  pod 'RealmSwift'
+  pod 'HandyJSON', '~> 4.2.0'
 end

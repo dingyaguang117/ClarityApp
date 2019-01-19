@@ -13,11 +13,17 @@
 		351404CB21E7A2E000A89755 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 351404C821E7A2E000A89755 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		351404CC21E7A2E000A89755 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351404C921E7A2E000A89755 /* Realm.framework */; };
 		351404CD21E7A2E000A89755 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 351404C921E7A2E000A89755 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3528F2A121F2098A0004B6C7 /* LauncherHelper.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 355EC84421F1FFD500FD22F1 /* LauncherHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		355EC84721F1FFD500FD22F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355EC84621F1FFD500FD22F1 /* AppDelegate.swift */; };
+		355EC84B21F1FFD600FD22F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 355EC84A21F1FFD600FD22F1 /* Assets.xcassets */; };
+		355EC85621F2009A00FD22F1 /* LauncherHelper.app in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 355EC84421F1FFD500FD22F1 /* LauncherHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		35748D1121E65AE10011ADEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1021E65AE10011ADEA /* AppDelegate.swift */; };
 		35748D1321E65AE10011ADEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1221E65AE10011ADEA /* ViewController.swift */; };
 		35748D1521E65AE30011ADEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1421E65AE30011ADEA /* Assets.xcassets */; };
 		35748D1821E65AE30011ADEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1621E65AE30011ADEA /* Main.storyboard */; };
 		357BFC5A21E6604B003E7A9D /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BFC5921E6604B003E7A9D /* TimeTracker.swift */; };
+		3595B2C321F20EF00083521F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3595B2C221F20EF00083521F /* ServiceManagement.framework */; };
+		3595B2C521F20EF90083521F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3595B2C421F20EF90083521F /* Cocoa.framework */; };
 		BBC582DB4CAD79AB04B5231F /* Pods_ClarityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E16B7EBDCF66D15BCFF67 /* Pods_ClarityApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,10 +34,22 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				355EC85621F2009A00FD22F1 /* LauncherHelper.app in Embed Frameworks */,
 				351404CD21E7A2E000A89755 /* Realm.framework in Embed Frameworks */,
 				351404CB21E7A2E000A89755 /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		355EC85421F2003400FD22F1 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				3528F2A121F2098A0004B6C7 /* LauncherHelper.app in Copy Files */,
+			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -41,6 +59,11 @@
 		351404C621E7998C00A89755 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		351404C821E7A2E000A89755 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		351404C921E7A2E000A89755 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		355EC84421F1FFD500FD22F1 /* LauncherHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LauncherHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		355EC84621F1FFD500FD22F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		355EC84A21F1FFD600FD22F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		355EC84F21F1FFD600FD22F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		355EC85021F1FFD600FD22F1 /* LauncherHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LauncherHelper.entitlements; sourceTree = "<group>"; };
 		35748D0D21E65AE10011ADEA /* ClarityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClarityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35748D1021E65AE10011ADEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35748D1221E65AE10011ADEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,16 +72,27 @@
 		35748D1921E65AE30011ADEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35748D1A21E65AE30011ADEA /* ClarityApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClarityApp.entitlements; sourceTree = "<group>"; };
 		357BFC5921E6604B003E7A9D /* TimeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
+		3595B2C221F20EF00083521F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		3595B2C421F20EF90083521F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		36795EB6B1C9233A46669658 /* Pods-ClarityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarityApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClarityApp/Pods-ClarityApp.release.xcconfig"; sourceTree = "<group>"; };
 		49B319061849583FDD5A1298 /* Pods-ClarityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarityApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClarityApp/Pods-ClarityApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4B4E16B7EBDCF66D15BCFF67 /* Pods_ClarityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClarityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		355EC84121F1FFD500FD22F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35748D0A21E65AE10011ADEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3595B2C521F20EF90083521F /* Cocoa.framework in Frameworks */,
+				3595B2C321F20EF00083521F /* ServiceManagement.framework in Frameworks */,
 				351404CC21E7A2E000A89755 /* Realm.framework in Frameworks */,
 				351404CA21E7A2E000A89755 /* RealmSwift.framework in Frameworks */,
 				BBC582DB4CAD79AB04B5231F /* Pods_ClarityApp.framework in Frameworks */,
@@ -76,12 +110,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		355EC84521F1FFD500FD22F1 /* LauncherHelper */ = {
+			isa = PBXGroup;
+			children = (
+				355EC84621F1FFD500FD22F1 /* AppDelegate.swift */,
+				355EC84A21F1FFD600FD22F1 /* Assets.xcassets */,
+				355EC84F21F1FFD600FD22F1 /* Info.plist */,
+				355EC85021F1FFD600FD22F1 /* LauncherHelper.entitlements */,
+			);
+			path = LauncherHelper;
+			sourceTree = "<group>";
+		};
 		35748D0421E65AE10011ADEA = {
 			isa = PBXGroup;
 			children = (
 				351404C921E7A2E000A89755 /* Realm.framework */,
 				351404C821E7A2E000A89755 /* RealmSwift.framework */,
 				35748D0F21E65AE10011ADEA /* ClarityApp */,
+				355EC84521F1FFD500FD22F1 /* LauncherHelper */,
 				35748D0E21E65AE10011ADEA /* Products */,
 				C1D6865B01E8893AC8A27A39 /* Pods */,
 				884D3E292E2CE5EA1030A620 /* Frameworks */,
@@ -92,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				35748D0D21E65AE10011ADEA /* ClarityApp.app */,
+				355EC84421F1FFD500FD22F1 /* LauncherHelper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -115,6 +162,8 @@
 		884D3E292E2CE5EA1030A620 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3595B2C421F20EF90083521F /* Cocoa.framework */,
+				3595B2C221F20EF00083521F /* ServiceManagement.framework */,
 				4B4E16B7EBDCF66D15BCFF67 /* Pods_ClarityApp.framework */,
 			);
 			name = Frameworks;
@@ -132,6 +181,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		355EC84321F1FFD500FD22F1 /* LauncherHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 355EC85321F1FFD600FD22F1 /* Build configuration list for PBXNativeTarget "LauncherHelper" */;
+			buildPhases = (
+				355EC84021F1FFD500FD22F1 /* Sources */,
+				355EC84121F1FFD500FD22F1 /* Frameworks */,
+				355EC84221F1FFD500FD22F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LauncherHelper;
+			productName = LauncherHelper;
+			productReference = 355EC84421F1FFD500FD22F1 /* LauncherHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
 		35748D0C21E65AE10011ADEA /* ClarityApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35748D1D21E65AE30011ADEA /* Build configuration list for PBXNativeTarget "ClarityApp" */;
@@ -142,6 +208,7 @@
 				35748D0B21E65AE10011ADEA /* Resources */,
 				7C4D86AF9A84086CE550EDC4 /* [CP] Embed Pods Frameworks */,
 				351404CE21E7A2E100A89755 /* Embed Frameworks */,
+				355EC85421F2003400FD22F1 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -162,6 +229,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Yaguang Ding";
 				TargetAttributes = {
+					355EC84321F1FFD500FD22F1 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					35748D0C21E65AE10011ADEA = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
@@ -186,11 +256,20 @@
 			projectRoot = "";
 			targets = (
 				35748D0C21E65AE10011ADEA /* ClarityApp */,
+				355EC84321F1FFD500FD22F1 /* LauncherHelper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		355EC84221F1FFD500FD22F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				355EC84B21F1FFD600FD22F1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35748D0B21E65AE10011ADEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,12 +291,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ClarityApp/Pods-ClarityApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +331,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		355EC84021F1FFD500FD22F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				355EC84721F1FFD500FD22F1 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		35748D0921E65AE10011ADEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -276,6 +365,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		355EC85121F1FFD600FD22F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LauncherHelper/LauncherHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X5ZZP6QUSQ;
+				INFOPLIST_FILE = LauncherHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.co-ding.ClarityLauncherHelper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		355EC85221F1FFD600FD22F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LauncherHelper/LauncherHelper.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = X5ZZP6QUSQ;
+				INFOPLIST_FILE = LauncherHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.co-ding.ClarityLauncherHelper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		35748D1B21E65AE30011ADEA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -444,6 +573,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		355EC85321F1FFD600FD22F1 /* Build configuration list for PBXNativeTarget "LauncherHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				355EC85121F1FFD600FD22F1 /* Debug */,
+				355EC85221F1FFD600FD22F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		35748D0821E65AE10011ADEA /* Build configuration list for PBXProject "ClarityApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

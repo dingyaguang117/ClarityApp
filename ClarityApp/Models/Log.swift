@@ -8,9 +8,10 @@
 
 import Foundation
 import RealmSwift
+import HandyJSON
 
-`
-class StatusLog : Object{
+
+class StatusLog : Object, HandyJSON{
     @objc dynamic var status: String = ""
     @objc dynamic var appId: String = ""
     @objc dynamic var appName: String = ""
@@ -19,4 +20,8 @@ class StatusLog : Object{
     @objc dynamic var end: Int32 = 0
     @objc dynamic var start: Int32 = 0
     @objc dynamic var duration: Int32 = 0
+    
+    override static func indexedProperties() -> [String] {
+        return ["start"]
+    }
 }

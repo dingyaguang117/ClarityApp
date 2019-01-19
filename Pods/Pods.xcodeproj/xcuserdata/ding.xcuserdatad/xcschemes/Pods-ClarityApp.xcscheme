@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "450684CAD45B342D773C812236E931A0"
+               BlueprintIdentifier = "4737B583B5357483BA22F4656A396EAF"
                BuildableName = "Pods_ClarityApp.framework"
                BlueprintName = "Pods-ClarityApp"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "450684CAD45B342D773C812236E931A0"
+            BlueprintIdentifier = "4737B583B5357483BA22F4656A396EAF"
             BuildableName = "Pods_ClarityApp.framework"
             BlueprintName = "Pods-ClarityApp"
             ReferencedContainer = "container:Pods.xcodeproj">
