@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     var statusItem: NSStatusItem?;
-    let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper1"
+    let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper"
     
     func addStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
