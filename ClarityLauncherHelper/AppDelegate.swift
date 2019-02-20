@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  LauncherHelper
+//  ClarityLauncherHelper
 //
-//  Created by Yaguang Ding on 2019/1/18.
+//  Created by Yaguang Ding on 2019/2/19.
 //  Copyright © 2019 Yaguang Ding. All rights reserved.
 //
 
@@ -11,15 +11,17 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    @IBOutlet weak var window: NSWindow!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+ 
         let mainAppId = "com.co-ding.ClarityApp"
         let running   = NSWorkspace.shared.runningApplications;
         var alreadyRunning = false;
         for app in running {
             if app.bundleIdentifier == mainAppId {
-                
+         
                 alreadyRunning = true;
                 break
             }
@@ -34,11 +36,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             components.removeLast()
             components.append("MacOS")
             components.append("ClarityApp")
-            
+         
             let newPath = NSString.path(withComponents: components);
+            print(newPath)
             NSWorkspace.shared.launchApplication(newPath);
         }else{
-            
+         
             self.terminate();
         }
     }
@@ -47,9 +50,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
-    func terminate() -> Void {
-        NSApp.terminate(nil);
+    func terminate() {
+        //      NSLog("I'll be back!")
+        NSApp.terminate(nil)
     }
+
 
 }
 

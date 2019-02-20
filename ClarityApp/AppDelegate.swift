@@ -11,27 +11,49 @@ import ServiceManagement
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
+    
+    var statusItem: NSStatusItem?;
+    let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper1"
+    
+    func addStatusItem() {
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        let image = NSImage (named: "monitor")
+        image?.isTemplate = true
+        statusItem?.button?.image = image
+    }
+    
+    var launchAtStartup: Bool {
+        get {
+            let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]]
+            for job in jobs! {
+                print(job)
+            }
+            return jobs?.contains(where: { $0["Label"] as! String == launchHelperIdentifier }) ?? false
+        }
+        set {
+            SMLoginItemSetEnabled(launchHelperIdentifier as CFString, newValue)
+        }
+    }
+    
     func setupLauncher() {
-        let appId = "com.co-ding.ClarityLauncherHelper";
-        SMLoginItemSetEnabled(appId as CFString, true);
         
-        var startedAtLogin = false
+        //let suc = SMLoginItemSetEnabled(launchHelperIdentifier as CFString, true);
+        //print("success:", suc)
+        print("success2:", launchAtStartup)
+    
         
         for app in NSWorkspace.shared.runningApplications {
-            if app.bundleIdentifier == appId    {
-                
-                startedAtLogin = true;
+            if app.bundleIdentifier == launchHelperIdentifier    {
+                let notification = Notification.Name("killme");
+                DistributedNotificationCenter.default().post(name: notification, object: Bundle.main.bundleIdentifier!);
+                break;
             }
-        }
-        if startedAtLogin {
-            let notification = Notification.Name("killme");
-            DistributedNotificationCenter.default().post(name: notification, object: Bundle.main.bundleIdentifier!);
         }
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+        addStatusItem()
         setupLauncher()
         
         // Insert code here to initialize your application
