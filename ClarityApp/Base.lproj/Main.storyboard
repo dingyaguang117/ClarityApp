@@ -694,6 +694,9 @@
                         </menuItem>
                         <menuItem title="Setting..." id="zCB-uM-bLZ">
                             <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <segue destination="XfG-lQ-9wD" kind="modal" id="cd3-vY-aEX"/>
+                            </connections>
                         </menuItem>
                         <menuItem title="Quit" id="uca-p5-k2R">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -725,7 +728,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="114" y="102"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -736,9 +739,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-IK-LXC">
-                                <rect key="frame" x="178" y="147" width="66" height="17"/>
+                                <rect key="frame" x="172" y="147" width="78" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="inline" title="fsdfsdfsd" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="Zqg-CY-Bkd">
+                                <buttonCell key="cell" type="inline" title="startatlogin" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="Zqg-CY-Bkd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="smallSystemBold"/>
                                 </buttonCell>
@@ -752,7 +755,10 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="108" y="535"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cq2-FE-JQM"/>
+    </inferredMetricsTieBreakers>
 </document>

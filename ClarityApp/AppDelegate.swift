@@ -16,20 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var statusMenu: NSMenu?;
     var statusItem: NSStatusItem?;
     let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper"
-    var launchAtStartup: Bool {
-        get {
-            let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]]
-            for job in jobs! {
-                //  print(job)
-            }
-            return jobs?.contains(where: { $0["Label"] as! String == launchHelperIdentifier }) ?? false
-        }
-        set {
-            print("set launchAtStartup", newValue)
-            SMLoginItemSetEnabled(launchHelperIdentifier as CFString, newValue)
-        }
-    }
-    
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         addStatusItem()
@@ -59,6 +46,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 // For LaunchAtStartup
 
 extension AppDelegate {
+    
+    var launchAtStartup: Bool {
+        get {
+            let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]]
+            for job in jobs! {
+                //  print(job)
+            }
+            return jobs?.contains(where: { $0["Label"] as! String == launchHelperIdentifier }) ?? false
+        }
+        set {
+            print("set launchAtStartup", newValue)
+            SMLoginItemSetEnabled(launchHelperIdentifier as CFString, newValue)
+        }
+    }
     
     func setupLauncher() {
         
