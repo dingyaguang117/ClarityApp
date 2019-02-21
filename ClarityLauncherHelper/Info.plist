@@ -30,8 +30,6 @@
 	<true/>
 	<key>LSUIElement</key>
 	<false/>
-	<key>NSAppleEventsUsageDescription</key>
-	<string>112</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

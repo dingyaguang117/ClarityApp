@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -674,11 +674,37 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ClarityApp" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ClarityApp" customModuleProvider="target">
+                    <connections>
+                        <outlet property="statusMenu" destination="kuV-Tm-BbH" id="5oZ-on-rrT"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="kuV-Tm-BbH">
+                    <items>
+                        <menuItem title="DashBoard..." id="FTY-G6-mK6">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="launchAtStartup" tag="2" identifier="launchAtStartup" id="8hR-Uy-3Gp">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="launchAtStartupChange:" target="Voe-Tx-rLC" id="bbW-S9-lMn"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Setting..." id="zCB-uM-bLZ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Quit" id="uca-p5-k2R">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="menuClickQuit:" target="Voe-Tx-rLC" id="tNv-vW-Cue"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="95" y="-132"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -720,23 +746,11 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="statusbarMenu" destination="kuV-Tm-BbH" id="6Mp-XW-qGu"/>
+                        <outlet property="startAtLogin" destination="Fr0-IK-LXC" id="FD3-dD-ZER"/>
+                        <outlet property="statusbarMenu" destination="kuV-Tm-BbH" id="Ehd-NW-4mj"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu id="kuV-Tm-BbH">
-                    <items>
-                        <menuItem title="Setting" id="FTY-G6-mK6">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem title="Dashboard" id="8hR-Uy-3Gp">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem title="Quit" id="uca-p5-k2R">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                    </items>
-                </menu>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>

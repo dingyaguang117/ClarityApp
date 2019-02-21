@@ -13,7 +13,7 @@
 		351404CB21E7A2E000A89755 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 351404C821E7A2E000A89755 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		351404CC21E7A2E000A89755 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 351404C921E7A2E000A89755 /* Realm.framework */; };
 		351404CD21E7A2E000A89755 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 351404C921E7A2E000A89755 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		351660EF221C07A7000E500B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351660EE221C07A7000E500B /* AppDelegate.swift */; };
+		351601A7221D788600ABF301 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351660EE221C07A7000E500B /* AppDelegate.swift */; };
 		351660F1221C07A8000E500B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351660F0221C07A8000E500B /* Assets.xcassets */; };
 		351660F4221C07A8000E500B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351660F2221C07A8000E500B /* MainMenu.xib */; };
 		351660FA221C09E2000E500B /* ClarityLauncherHelper.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 351660EC221C07A7000E500B /* ClarityLauncherHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -353,7 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				351660EF221C07A7000E500B /* AppDelegate.swift in Sources */,
+				351601A7221D788600ABF301 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +556,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49B319061849583FDD5A1298 /* Pods-ClarityApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -582,6 +583,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 36795EB6B1C9233A46669658 /* Pods-ClarityApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;

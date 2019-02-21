@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
- 
         let mainAppId = "com.co-ding.ClarityApp"
         let running   = NSWorkspace.shared.runningApplications;
         var alreadyRunning = false;

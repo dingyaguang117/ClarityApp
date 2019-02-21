@@ -3,17 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "AppDelegate.addStatusItem():AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "image.size">
-            </PersistentString>
-            <PersistentString
-               value = "NSStatusItem.squareLength">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "closure #1 in Server.init():WebServer.swift">
          <PersistentStrings>
             <PersistentString
@@ -26,6 +15,31 @@
          <PersistentStrings>
             <PersistentString
                value = "NSStatusItem.variableLength">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.addStatusItem():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "statusMenu">
+            </PersistentString>
+            <PersistentString
+               value = "NSStatusItem.squareLength">
+            </PersistentString>
+            <PersistentString
+               value = "image.size">
+            </PersistentString>
+            <PersistentString
+               value = "statusItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.viewDidLoad():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "statusbarMenu">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

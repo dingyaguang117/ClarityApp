@@ -7,12 +7,20 @@
 //
 
 import Cocoa
+import ServiceManagement
+import AppKit
 
 class ViewController: NSViewController {
     
+    @IBOutlet weak var startAtLogin: NSButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("window loaded")
+        
+        let appdel : AppDelegate = NSApplication.shared.delegate as! AppDelegate;
+        self.startAtLogin.title = String(appdel.launchAtStartup);
     }
 
     override var representedObject: Any? {
