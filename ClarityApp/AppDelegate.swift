@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let queue = DispatchQueue(label: "com.co-ding.clarityapp", qos: .unspecified, attributes: .concurrent)
         queue.async {
             let timeTracker = TimeTracker()
-            //timeTracker.run()
+            timeTracker.run()
         }
         queue.async {
             let server = Server()

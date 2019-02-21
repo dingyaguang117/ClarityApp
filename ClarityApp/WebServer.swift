@@ -21,6 +21,9 @@ class Server {
             let end = query["end"]
             
             let realm = try! Realm()
+//            realm.autorefresh = true
+            realm.refresh()
+            
             var items = realm.objects(StatusLog.self).filter("start >= %@", Int(start ?? "0"))
             
             var data = [Any]()
