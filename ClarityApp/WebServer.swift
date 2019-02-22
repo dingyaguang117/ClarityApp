@@ -19,18 +19,18 @@ class Server {
             var query = Dictionary<String, String>(uniqueKeysWithValues: request.queryParams)
             let start = query["start"]
             let end = query["end"]
+            var data = [Any]()
             
             let realm = try! Realm()
-//            realm.autorefresh = true
             realm.refresh()
             
-            var items = realm.objects(StatusLog.self).filter("start >= %@", Int(start ?? "0"))
-            
-            var data = [Any]()
-            for item in items {
-                data.append(item.toJSON())
+            var startTime = Int(start ?? "0")
+            if startTime != nil {
+                var items = realm.objects(StatusLog.self).filter("start >= %@", startTime)
+                for item in items {
+                    data.append(item.toJSON())
+                }
             }
-            
             var result: [String : Any] = ["code": 0, "data": data]
             return HttpResponse.ok(.json(result as AnyObject))
         }

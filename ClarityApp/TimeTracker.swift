@@ -49,7 +49,7 @@ class TimeTracker {
         // we don't have accessibility permissions
         if(!appHasPermission) {
             print("has no permissions")
-            return nil
+            return status
         }
         // Get the accessibility element corresponding to the frontmost application.
         let appElem = AXUIElementCreateApplication(pid)
@@ -60,7 +60,7 @@ class TimeTracker {
         var err = AXUIElementCopyAttributeValue(appElem, kAXFocusedWindowAttribute as CFString, &window)
         if err != AXError.success {
             print("get focused window error")
-            return nil
+            return status
         }
         // print("window", window!)
         // Finally, get the title of the frontmost window.
@@ -68,7 +68,7 @@ class TimeTracker {
         err = AXUIElementCopyAttributeValue(window as! AXUIElement, kAXTitleAttribute as CFString, &title)
         if err != AXError.success {
             print("get title error")
-            return nil
+            return status
         }
         status.windowTitle = title as! String
 
@@ -85,7 +85,13 @@ class TimeTracker {
     
     func log(status : SystemStatus) {
         let timestampNow = Int32(Date().timeIntervalSince1970)
-        if lastLog == nil {
+        if lastLog == nil || lastLog!.appId != status.appId {
+            if lastLog != nil {
+                lastLog!.end = timestampNow
+                lastLog!.duration = lastLog!.end - lastLog!.start
+                storeLog(lastLog!)
+            }
+            
             lastLog = StatusLog()
             lastLog?.appId = status.appId
             lastLog?.appName = status.appName
@@ -93,18 +99,6 @@ class TimeTracker {
             lastLog?.windowTitle = status.windowTitle
             lastLog!.start = timestampNow
             return
-        }
-
-        if(lastLog!.appId != status.appId) {
-            lastLog!.end = timestampNow
-            lastLog!.duration = lastLog!.end - lastLog!.start
-            storeLog(lastLog!)
-            lastLog = StatusLog()
-            lastLog?.appId = status.appId
-            lastLog?.appName = status.appName
-            lastLog?.appVersion = status.appVersion
-            lastLog?.windowTitle = status.windowTitle
-            lastLog!.start = timestampNow
         }
     }
     
