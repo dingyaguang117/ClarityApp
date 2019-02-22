@@ -11,7 +11,8 @@ import RealmSwift
 
 
 struct SystemStatus {
-    var appId    : String
+    var status      : String
+    var appId       : String
     var appName     : String
     var appVersion  : String
     var windowTitle : String
@@ -19,6 +20,7 @@ struct SystemStatus {
 
     
     init () {
+        self.status = ""
         self.appId = ""
         self.appName = ""
         self.appVersion = ""
@@ -28,11 +30,19 @@ struct SystemStatus {
 }
 
 class TimeTracker {
+    let IDLE_TIME = 60
     var lastLog : StatusLog?
     let realm = try! Realm()
     
     func inspect() -> SystemStatus? {
         var status : SystemStatus = SystemStatus()
+        
+        status.idle = Int32(SystemIdleTime() ?? 0)
+        if(status.idle > IDLE_TIME) {
+            status.status = "idle"
+        }else {
+            status.status = "active"
+        }
         
         // Get the process ID of the frontmost application.
         let app = NSWorkspace.shared.frontmostApplication
@@ -85,7 +95,7 @@ class TimeTracker {
     
     func log(status : SystemStatus) {
         let timestampNow = Int32(Date().timeIntervalSince1970)
-        if lastLog == nil || lastLog!.appId != status.appId {
+        if lastLog == nil || lastLog!.appId != status.appId || lastLog?.status != status.status {
             if lastLog != nil {
                 lastLog!.end = timestampNow
                 lastLog!.duration = lastLog!.end - lastLog!.start
@@ -93,6 +103,7 @@ class TimeTracker {
             }
             
             lastLog = StatusLog()
+            lastLog?.status = status.status
             lastLog?.appId = status.appId
             lastLog?.appName = status.appName
             lastLog?.appVersion = status.appVersion
