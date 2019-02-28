@@ -18,6 +18,8 @@
 		351660F4221C07A8000E500B /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 351660F2221C07A8000E500B /* MainMenu.xib */; };
 		351660FA221C09E2000E500B /* ClarityLauncherHelper.app in Copy Files */ = {isa = PBXBuildFile; fileRef = 351660EC221C07A7000E500B /* ClarityLauncherHelper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		351A5B9522200E6C00EAA7B9 /* SystemIdleTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A5B9422200E6C00EAA7B9 /* SystemIdleTime.swift */; };
+		354E93CA222820F10055294F /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E93C8222820F10055294F /* PopoverViewController.swift */; };
+		354E93CB222820F10055294F /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354E93C9222820F10055294F /* PopoverViewController.xib */; };
 		35748D1121E65AE10011ADEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1021E65AE10011ADEA /* AppDelegate.swift */; };
 		35748D1321E65AE10011ADEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1221E65AE10011ADEA /* ViewController.swift */; };
 		35748D1521E65AE30011ADEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1421E65AE30011ADEA /* Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		351660F5221C07A8000E500B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351660F6221C07A8000E500B /* ClarityLauncherHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClarityLauncherHelper.entitlements; sourceTree = "<group>"; };
 		351A5B9422200E6C00EAA7B9 /* SystemIdleTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemIdleTime.swift; sourceTree = "<group>"; };
+		354E93C8222820F10055294F /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		354E93C9222820F10055294F /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		35748D0D21E65AE10011ADEA /* ClarityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClarityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35748D1021E65AE10011ADEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35748D1221E65AE10011ADEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 		35748D0F21E65AE10011ADEA /* ClarityApp */ = {
 			isa = PBXGroup;
 			children = (
+				35890B3C222801AC00A8643D /* Views */,
 				351404C521E7996300A89755 /* Models */,
 				35748D1021E65AE10011ADEA /* AppDelegate.swift */,
 				35748D1221E65AE10011ADEA /* ViewController.swift */,
@@ -171,6 +176,15 @@
 				35748D1A21E65AE30011ADEA /* ClarityApp.entitlements */,
 			);
 			path = ClarityApp;
+			sourceTree = "<group>";
+		};
+		35890B3C222801AC00A8643D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				354E93C8222820F10055294F /* PopoverViewController.swift */,
+				354E93C9222820F10055294F /* PopoverViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		884D3E292E2CE5EA1030A620 /* Frameworks */ = {
@@ -295,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354E93CB222820F10055294F /* PopoverViewController.xib in Resources */,
 				35748D1521E65AE30011ADEA /* Assets.xcassets in Resources */,
 				35748D1821E65AE30011ADEA /* Main.storyboard in Resources */,
 			);
@@ -364,6 +379,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				354E93CA222820F10055294F /* PopoverViewController.swift in Sources */,
 				35748D1321E65AE10011ADEA /* ViewController.swift in Sources */,
 				35748D1121E65AE10011ADEA /* AppDelegate.swift in Sources */,
 				351404C721E7998C00A89755 /* Log.swift in Sources */,

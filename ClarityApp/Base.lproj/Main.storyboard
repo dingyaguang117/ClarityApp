@@ -683,7 +683,11 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="kuV-Tm-BbH">
                     <items>
-                        <menuItem title="DashBoard..." keyEquivalent="d" id="FTY-G6-mK6"/>
+                        <menuItem title="DashBoard..." keyEquivalent="d" id="FTY-G6-mK6">
+                            <connections>
+                                <action selector="OpenDashboard:" target="Voe-Tx-rLC" id="J6d-pi-ePa"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Launch at Login" tag="2" identifier="launchAtStartup" id="8hR-Uy-3Gp">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>

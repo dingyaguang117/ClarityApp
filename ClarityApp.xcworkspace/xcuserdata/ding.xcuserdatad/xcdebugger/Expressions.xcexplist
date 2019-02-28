@@ -3,20 +3,7 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in Server.init():WebServer.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "items[i]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AppDelegate.setupLauncher():AppDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "NSStatusItem.variableLength">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "AppDelegate.OpenDashboard(_:):AppDelegate.swift">
       </ContextState>
       <ContextState
          contextName = "AppDelegate.addStatusItem():AppDelegate.swift">
@@ -32,6 +19,36 @@
             </PersistentString>
             <PersistentString
                value = "statusItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in Server.init():WebServer.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "items[i]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PopoverViewController.tableView.getter:PopoverViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.setupLauncher():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSStatusItem.variableLength">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PopoverViewController.viewDidLoad():PopoverViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView.frame">
+            </PersistentString>
+            <PersistentString
+               value = "self.view.bounds">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

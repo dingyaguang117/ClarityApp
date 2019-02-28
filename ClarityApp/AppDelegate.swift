@@ -13,8 +13,10 @@ import ServiceManagement
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+
     @IBOutlet var statusMenu: NSMenu?;
     var statusItem: NSStatusItem?;
+    let popover = NSPopover()
     let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper"
 
 
@@ -88,6 +90,8 @@ extension AppDelegate {
         image?.isTemplate = true
         statusItem?.menu = statusMenu
         statusItem?.button?.image = image
+        
+        popover.contentViewController = PopoverViewController()
     }
     
     
@@ -103,6 +107,17 @@ extension AppDelegate {
     
     @IBAction func menuClickQuit(_ sender: Any) {
         NSApplication.shared.terminate(nil)
+    }
+    
+    @IBAction func OpenDashboard(_ sender: NSMenuItem) {
+        
+        if(popover.isShown) {
+            popover.performClose(sender)
+        }else {
+            let button = statusItem!.button
+            popover.show(relativeTo: button!.bounds, of: button!, preferredEdge: NSRectEdge.minY)
+        }
+        
     }
     
 }
