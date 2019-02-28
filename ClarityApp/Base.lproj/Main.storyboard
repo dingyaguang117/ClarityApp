@@ -683,23 +683,19 @@
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="kuV-Tm-BbH">
                     <items>
-                        <menuItem title="DashBoard..." id="FTY-G6-mK6">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                        </menuItem>
-                        <menuItem title="launchAtStartup" tag="2" identifier="launchAtStartup" id="8hR-Uy-3Gp">
+                        <menuItem title="DashBoard..." keyEquivalent="d" id="FTY-G6-mK6"/>
+                        <menuItem title="Launch at Login" tag="2" identifier="launchAtStartup" id="8hR-Uy-3Gp">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="launchAtStartupChange:" target="Voe-Tx-rLC" id="bbW-S9-lMn"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Setting..." id="zCB-uM-bLZ">
-                            <modifierMask key="keyEquivalentModifierMask"/>
+                        <menuItem title="Preference..." keyEquivalent="p" id="zCB-uM-bLZ">
                             <connections>
                                 <segue destination="XfG-lQ-9wD" kind="modal" id="cd3-vY-aEX"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Quit" id="uca-p5-k2R">
-                            <modifierMask key="keyEquivalentModifierMask"/>
+                        <menuItem title="Quit" keyEquivalent="q" id="uca-p5-k2R">
                             <connections>
                                 <action selector="menuClickQuit:" target="Voe-Tx-rLC" id="tNv-vW-Cue"/>
                             </connections>

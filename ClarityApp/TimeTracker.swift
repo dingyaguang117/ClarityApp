@@ -20,7 +20,7 @@ struct SystemStatus {
 
     
     init () {
-        self.status = ""
+        self.status = "active"
         self.appId = ""
         self.appName = ""
         self.appVersion = ""
@@ -32,6 +32,7 @@ struct SystemStatus {
 class TimeTracker {
     let IDLE_TIME = 60
     var lastLog : StatusLog?
+    var permissionPrompt = true
     let realm = try! Realm()
     
     func inspect() -> SystemStatus? {
@@ -40,8 +41,6 @@ class TimeTracker {
         status.idle = Int32(SystemIdleTime() ?? 0)
         if(status.idle > IDLE_TIME) {
             status.status = "idle"
-        }else {
-            status.status = "active"
         }
         
         // Get the process ID of the frontmost application.
@@ -53,12 +52,15 @@ class TimeTracker {
 
         // See if we have accessibility permissions, and if not, prompt the user to
         // visit System Preferences.
-        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() : true]
+        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() : permissionPrompt]
         let appHasPermission: Bool = AXIsProcessTrustedWithOptions(options as  CFDictionary?)
+        
+        // Only prompt once
+        permissionPrompt = false
         
         // we don't have accessibility permissions
         if(!appHasPermission) {
-            print("has no permissions")
+            NSLog("has no permissions")
             return status
         }
         // Get the accessibility element corresponding to the frontmost application.
@@ -69,7 +71,7 @@ class TimeTracker {
         var window: CFTypeRef?
         var err = AXUIElementCopyAttributeValue(appElem, kAXFocusedWindowAttribute as CFString, &window)
         if err != AXError.success {
-            print("get focused window error")
+            NSLog("get focused window error")
             return status
         }
         // print("window", window!)
@@ -77,7 +79,7 @@ class TimeTracker {
         var title : CFTypeRef?
         err = AXUIElementCopyAttributeValue(window as! AXUIElement, kAXTitleAttribute as CFString, &title)
         if err != AXError.success {
-            print("get title error")
+            NSLog("get title error")
             return status
         }
         status.windowTitle = title as! String
@@ -87,7 +89,7 @@ class TimeTracker {
     
     func storeLog(_ log: StatusLog){
         try! realm.write {
-            print("write log")
+            NSLog("write log %@ %@", log.status, log.appName)
             realm.add(log)
         }
 
