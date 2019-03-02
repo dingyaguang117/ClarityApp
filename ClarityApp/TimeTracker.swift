@@ -49,6 +49,7 @@ class TimeTracker {
         
         status.appId = app?.bundleIdentifier ?? ""
         status.appName = app?.localizedName ?? ""
+        IconUtil.save(appId: status.appId, img: app!.icon!)
 
         // See if we have accessibility permissions, and if not, prompt the user to
         // visit System Preferences.
@@ -113,6 +114,8 @@ class TimeTracker {
             lastLog!.start = timestampNow
             return
         }
+        lastLog?.end = timestampNow
+        lastLog?.duration = lastLog!.end - lastLog!.start
     }
     
     func run() {

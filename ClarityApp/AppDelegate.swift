@@ -17,11 +17,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet var statusMenu: NSMenu?;
     var statusItem: NSStatusItem?;
     let popover = NSPopover()
+    let popoverController = PopoverViewController()
+    public var lastLog: StatusLog?
+    
     let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper"
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        addStatusItem()
+        setupStatusBar()
+        setupPopover()
         setupLauncher()
         
         // Insert code here to initialize your application
@@ -40,9 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-
 }
-
 
 
 // For LaunchAtStartup
@@ -84,14 +86,18 @@ extension AppDelegate {
 
 extension AppDelegate {
   
-    func addStatusItem() {
+    func setupStatusBar() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         let image = NSImage (named: "monitor")
         image?.isTemplate = true
         statusItem?.menu = statusMenu
         statusItem?.button?.image = image
-        
-        popover.contentViewController = PopoverViewController()
+    }
+    
+    func setupPopover() {
+        popover.contentViewController = self.popoverController
+        popover.behavior = .transient
+//        popover.appearance = NSAppearance(appearanceNamed: .darkAqua, bundle: nil)
     }
     
     
@@ -115,6 +121,7 @@ extension AppDelegate {
             popover.performClose(sender)
         }else {
             let button = statusItem!.button
+            popoverController.refresh()
             popover.show(relativeTo: button!.bounds, of: button!, preferredEdge: NSRectEdge.minY)
         }
         
