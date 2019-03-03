@@ -10,7 +10,7 @@ import Cocoa
 import RealmSwift
 
 class PopoverViewController: NSViewController {
-    
+
     var stats : [StatsItem]?
     @IBOutlet weak var tableView: NSTableView!
     
@@ -22,7 +22,29 @@ class PopoverViewController: NSViewController {
     }
 }
 
-// MARK: 请求数据
+// Actions
+
+extension PopoverViewController {
+    @IBAction func OpenSetting(_ sender: Any) {
+
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+
+        let vc = storyboard.instantiateController(withIdentifier: "PreferenceID") as! SettingViewController
+
+        var window = NSWindow(contentViewController: vc)
+        window.makeKeyAndOrderFront(self)
+        let controller = NSWindowController(window: window)
+        NSApp.activate(ignoringOtherApps: true)
+        controller.showWindow(nil)
+    }
+    
+    @IBAction func Quit(_ sender: Any) {
+        NSApplication.shared.terminate(nil)
+    }
+}
+
+
+// MARK: 数据
 
 struct StatsItem {
     var appId : String
@@ -69,7 +91,6 @@ extension PopoverViewController {
     
     func loadStats() {
         stats = [StatsItem]()
-        
         let realm = try! Realm()
         
         let timeToday = Date(timeIntervalSinceNow: -86400)
@@ -80,8 +101,7 @@ extension PopoverViewController {
 //            statusLogs.append(app.lastLog!)
 //        }
 //
-        
-        
+
         var dict = [String: StatsItem]()
         for i in 0..<statusLogs.count {
             let log = statusLogs[i]
@@ -114,7 +134,7 @@ extension PopoverViewController : NSTableViewDataSource, NSTableViewDelegate{
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        return true
+        return false
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -123,7 +143,8 @@ extension PopoverViewController : NSTableViewDataSource, NSTableViewDelegate{
     }
     
     fileprivate enum CellIdentifiers {
-        static let IconNameCell = "IconNameCellID"
+        static let IconCell = "IconCellID"
+        static let NameCell = "NameCellID"
         static let TimeCell = "TimeCellID"
     }
     
@@ -134,10 +155,13 @@ extension PopoverViewController : NSTableViewDataSource, NSTableViewDelegate{
         var cellIdentifier: String = ""
 
         if tableColumn == tableView.tableColumns[0] {
-            text = statsItem.appName
+            text = String(statsItem.count) + "x"
             image = IconUtil.load(appId: statsItem.appId)
-            cellIdentifier = CellIdentifiers.IconNameCell
+            cellIdentifier = CellIdentifiers.IconCell
         } else if tableColumn == tableView.tableColumns[1] {
+            text = statsItem.appName
+            cellIdentifier = CellIdentifiers.NameCell
+        } else if tableColumn == tableView.tableColumns[2] {
             text = String(statsItem.timeString())
             cellIdentifier = CellIdentifiers.TimeCell
         }

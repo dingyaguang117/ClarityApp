@@ -40,10 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
 }
 
 
@@ -66,7 +62,6 @@ extension AppDelegate {
     }
     
     func setupLauncher() {
-        
         launchAtStartup = true
         statusMenu?.item(withTag: 2)?.state = .on
         
@@ -90,14 +85,9 @@ extension AppDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         let image = NSImage (named: "monitor")
         image?.isTemplate = true
-        statusItem?.menu = statusMenu
+        //statusItem?.menu = statusMenu
         statusItem?.button?.image = image
-    }
-    
-    func setupPopover() {
-        popover.contentViewController = self.popoverController
-        popover.behavior = .transient
-//        popover.appearance = NSAppearance(appearanceNamed: .darkAqua, bundle: nil)
+        statusItem?.button?.action = #selector(OpenPopover(_:))
     }
     
     
@@ -114,17 +104,23 @@ extension AppDelegate {
     @IBAction func menuClickQuit(_ sender: Any) {
         NSApplication.shared.terminate(nil)
     }
+}
+
+
+// =MARK Popover
+
+extension AppDelegate {
     
-    @IBAction func OpenDashboard(_ sender: NSMenuItem) {
-        
-        if(popover.isShown) {
-            popover.performClose(sender)
-        }else {
-            let button = statusItem!.button
-            popoverController.refresh()
-            popover.show(relativeTo: button!.bounds, of: button!, preferredEdge: NSRectEdge.minY)
-        }
-        
+    func setupPopover() {
+        popover.contentViewController = self.popoverController
+        popover.behavior = .transient
+        //popover.appearance = NSAppearance(appearanceNamed: .darkAqua, bundle: nil)
+    }
+    
+    @IBAction func OpenPopover(_ sender: NSMenuItem) {
+        let button = statusItem!.button
+        popoverController.refresh()
+        popover.show(relativeTo: button!.bounds, of: button!, preferredEdge: NSRectEdge.minY)
     }
     
 }

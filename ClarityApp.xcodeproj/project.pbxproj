@@ -22,7 +22,7 @@
 		354E93CA222820F10055294F /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E93C8222820F10055294F /* PopoverViewController.swift */; };
 		354E93CB222820F10055294F /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354E93C9222820F10055294F /* PopoverViewController.xib */; };
 		35748D1121E65AE10011ADEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1021E65AE10011ADEA /* AppDelegate.swift */; };
-		35748D1321E65AE10011ADEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1221E65AE10011ADEA /* ViewController.swift */; };
+		35748D1321E65AE10011ADEA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1221E65AE10011ADEA /* SettingViewController.swift */; };
 		35748D1521E65AE30011ADEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1421E65AE30011ADEA /* Assets.xcassets */; };
 		35748D1821E65AE30011ADEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1621E65AE30011ADEA /* Main.storyboard */; };
 		357BFC5A21E6604B003E7A9D /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BFC5921E6604B003E7A9D /* TimeTracker.swift */; };
@@ -84,7 +84,7 @@
 		354E93C9222820F10055294F /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		35748D0D21E65AE10011ADEA /* ClarityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClarityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35748D1021E65AE10011ADEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35748D1221E65AE10011ADEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		35748D1221E65AE10011ADEA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		35748D1421E65AE30011ADEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35748D1721E65AE30011ADEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35748D1921E65AE30011ADEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		35890B3C222801AC00A8643D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				35748D1221E65AE10011ADEA /* ViewController.swift */,
+				35748D1221E65AE10011ADEA /* SettingViewController.swift */,
 				354E93C8222820F10055294F /* PopoverViewController.swift */,
 				354E93C9222820F10055294F /* PopoverViewController.xib */,
 			);
@@ -392,7 +392,7 @@
 			files = (
 				3520EF6422298645004FE502 /* IconUtil.swift in Sources */,
 				354E93CA222820F10055294F /* PopoverViewController.swift in Sources */,
-				35748D1321E65AE10011ADEA /* ViewController.swift in Sources */,
+				35748D1321E65AE10011ADEA /* SettingViewController.swift in Sources */,
 				35748D1121E65AE10011ADEA /* AppDelegate.swift in Sources */,
 				351404C721E7998C00A89755 /* Log.swift in Sources */,
 				351A5B9522200E6C00EAA7B9 /* SystemIdleTime.swift in Sources */,

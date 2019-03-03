@@ -685,13 +685,13 @@
                     <items>
                         <menuItem title="DashBoard..." keyEquivalent="d" id="FTY-G6-mK6">
                             <connections>
-                                <action selector="OpenDashboard:" target="Voe-Tx-rLC" id="J6d-pi-ePa"/>
+                                <action selector="OpenPopover:" target="Voe-Tx-rLC" id="J6d-pi-ePa"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Launch at Login" tag="2" identifier="launchAtStartup" id="8hR-Uy-3Gp">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="launchAtStartupChange:" target="Voe-Tx-rLC" id="bbW-S9-lMn"/>
+                                <action selector="OpenPopover:" target="Voe-Tx-rLC" id="bbW-S9-lMn"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Preference..." keyEquivalent="p" id="zCB-uM-bLZ">
@@ -701,7 +701,7 @@
                         </menuItem>
                         <menuItem title="Quit" keyEquivalent="q" id="uca-p5-k2R">
                             <connections>
-                                <action selector="menuClickQuit:" target="Voe-Tx-rLC" id="tNv-vW-Cue"/>
+                                <action selector="OpenPopover:" target="Voe-Tx-rLC" id="tNv-vW-Cue"/>
                             </connections>
                         </menuItem>
                     </items>
@@ -730,32 +730,41 @@
             </objects>
             <point key="canvasLocation" x="114" y="102"/>
         </scene>
-        <!--View Controller-->
+        <!--Setting-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ClarityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Setting" storyboardIdentifier="PreferenceID" id="XfG-lQ-9wD" customClass="SettingViewController" customModule="ClarityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="426" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fr0-IK-LXC">
-                                <rect key="frame" x="172" y="147" width="78" height="17"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-B4-VUS">
+                                <rect key="frame" x="160" y="234" width="106" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="inline" title="startatlogin" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="Zqg-CY-Bkd">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="smallSystemBold"/>
+                                <buttonCell key="cell" type="check" title="Start At Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dKX-ZL-fRd">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-CG-ccF">
+                                <rect key="frame" x="171" y="7" width="84" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Clarity v0.3.2" id="RDZ-dH-HTg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="startAtLogin" destination="Fr0-IK-LXC" id="FD3-dD-ZER"/>
+                        <outlet property="startAtLogin" destination="B5g-B4-VUS" id="s9r-TM-quP"/>
                         <outlet property="statusbarMenu" destination="kuV-Tm-BbH" id="Ehd-NW-4mj"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="535"/>
+            <point key="canvasLocation" x="149" y="535"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
