@@ -93,7 +93,7 @@ extension PopoverViewController {
         stats = [StatsItem]()
         let realm = try! Realm()
         
-        let timeToday = Date(timeIntervalSinceNow: -86400)
+        let timeToday = Date(timeIntervalSinceNow: TimeInterval(-(Int(Date().timeIntervalSince1970) % 86400)))
         var statusLogs = realm.objects(StatusLog.self).filter("start > %@", Int(timeToday.timeIntervalSince1970)).toArray(type: StatusLog.self)
         // TODO: calc lastLog
         //        let app = NSApplication.shared.delegate as! AppDelegate

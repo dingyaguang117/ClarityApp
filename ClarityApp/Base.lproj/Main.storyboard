@@ -745,6 +745,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="startAtLoginChanged:" target="XfG-lQ-9wD" id="mTH-9x-b9z"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-CG-ccF">
                                 <rect key="frame" x="171" y="7" width="84" height="17"/>
@@ -768,6 +771,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cq2-FE-JQM"/>
+        <segue reference="cd3-vY-aEX"/>
     </inferredMetricsTieBreakers>
 </document>

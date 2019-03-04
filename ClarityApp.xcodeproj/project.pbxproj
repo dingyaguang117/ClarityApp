@@ -28,6 +28,7 @@
 		357BFC5A21E6604B003E7A9D /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BFC5921E6604B003E7A9D /* TimeTracker.swift */; };
 		3595B2C321F20EF00083521F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3595B2C221F20EF00083521F /* ServiceManagement.framework */; };
 		3595B2C521F20EF90083521F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3595B2C421F20EF90083521F /* Cocoa.framework */; };
+		35F7552A222D04030066B711 /* LauncherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F75529222D04030066B711 /* LauncherHelper.swift */; };
 		BBC582DB4CAD79AB04B5231F /* Pods_ClarityApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B4E16B7EBDCF66D15BCFF67 /* Pods_ClarityApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		357BFC5921E6604B003E7A9D /* TimeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		3595B2C221F20EF00083521F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		3595B2C421F20EF90083521F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		35F75529222D04030066B711 /* LauncherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LauncherHelper.swift; sourceTree = "<group>"; };
 		36795EB6B1C9233A46669658 /* Pods-ClarityApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarityApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ClarityApp/Pods-ClarityApp.release.xcconfig"; sourceTree = "<group>"; };
 		49B319061849583FDD5A1298 /* Pods-ClarityApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClarityApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClarityApp/Pods-ClarityApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4B4E16B7EBDCF66D15BCFF67 /* Pods_ClarityApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClarityApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				3520EF6322298645004FE502 /* IconUtil.swift */,
+				35F75529222D04030066B711 /* LauncherHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				354E93CA222820F10055294F /* PopoverViewController.swift in Sources */,
 				35748D1321E65AE10011ADEA /* SettingViewController.swift in Sources */,
 				35748D1121E65AE10011ADEA /* AppDelegate.swift in Sources */,
+				35F7552A222D04030066B711 /* LauncherHelper.swift in Sources */,
 				351404C721E7998C00A89755 /* Log.swift in Sources */,
 				351A5B9522200E6C00EAA7B9 /* SystemIdleTime.swift in Sources */,
 				357BFC5A21E6604B003E7A9D /* TimeTracker.swift in Sources */,

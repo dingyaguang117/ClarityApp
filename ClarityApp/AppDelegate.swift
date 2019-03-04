@@ -20,7 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popoverController = PopoverViewController()
     public var lastLog: StatusLog?
     
-    let launchHelperIdentifier = "com.co-ding.ClarityLauncherHelper"
+    
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -47,26 +47,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension AppDelegate {
     
-    var launchAtStartup: Bool {
-        get {
-            let jobs = SMCopyAllJobDictionaries(kSMDomainUserLaunchd).takeRetainedValue() as? [[String: AnyObject]]
-            for job in jobs! {
-                //  print(job)
-            }
-            return jobs?.contains(where: { $0["Label"] as! String == launchHelperIdentifier }) ?? false
-        }
-        set {
-            print("set launchAtStartup", newValue)
-            SMLoginItemSetEnabled(launchHelperIdentifier as CFString, newValue)
-        }
-    }
-    
+
     func setupLauncher() {
-        launchAtStartup = true
+        LauncherHelper.shared.launchAtStartup = true
         statusMenu?.item(withTag: 2)?.state = .on
         
         for app in NSWorkspace.shared.runningApplications {
-            if app.bundleIdentifier == launchHelperIdentifier    {
+            if app.bundleIdentifier == LauncherHelper.Identifier    {
                 let notification = Notification.Name("killme");
                 DistributedNotificationCenter.default().post(name: notification, object: Bundle.main.bundleIdentifier!);
                 break;
@@ -93,10 +80,10 @@ extension AppDelegate {
     
     @IBAction func launchAtStartupChange(_ sender: NSMenuItem) {
         if sender.state == .on {
-            launchAtStartup = false
+            LauncherHelper.shared.launchAtStartup = false
             sender.state = .off
         }else {
-            launchAtStartup = true
+            LauncherHelper.shared.launchAtStartup = true
             sender.state = .on
         }
     }

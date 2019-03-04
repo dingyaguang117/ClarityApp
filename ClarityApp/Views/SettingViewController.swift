@@ -13,11 +13,18 @@ import AppKit
 class SettingViewController: NSViewController {
     @IBOutlet weak var startAtLogin: NSButton!
     
+    @IBAction func startAtLoginChanged(_ sender: NSButton) {
+        if sender.state == .on {
+            LauncherHelper.shared.launchAtStartup = true
+        }else {
+            LauncherHelper.shared.launchAtStartup = false
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let appdel : AppDelegate = NSApplication.shared.delegate as! AppDelegate;
-        self.startAtLogin.state = appdel.launchAtStartup ? .on : .off
+        self.startAtLogin.state = LauncherHelper.shared.launchAtStartup ? .on : .off
     }
 
 }
