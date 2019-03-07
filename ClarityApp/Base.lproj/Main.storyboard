@@ -676,6 +676,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ClarityApp" customModuleProvider="target">
                     <connections>
+                        <outlet property="Updater" destination="7PE-RI-DYQ" id="Wpn-3g-ZGD"/>
                         <outlet property="statusMenu" destination="kuV-Tm-BbH" id="5oZ-on-rrT"/>
                     </connections>
                 </customObject>
@@ -706,6 +707,7 @@
                         </menuItem>
                     </items>
                 </menu>
+                <customObject id="7PE-RI-DYQ" customClass="SUUpdater"/>
             </objects>
             <point key="canvasLocation" x="95" y="-132"/>
         </scene>
@@ -735,11 +737,11 @@
             <objects>
                 <viewController title="Setting" storyboardIdentifier="PreferenceID" id="XfG-lQ-9wD" customClass="SettingViewController" customModule="ClarityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="426" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="266" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-B4-VUS">
-                                <rect key="frame" x="160" y="234" width="106" height="18"/>
+                                <rect key="frame" x="18" y="234" width="106" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Start At Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dKX-ZL-fRd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -750,7 +752,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-CG-ccF">
-                                <rect key="frame" x="171" y="7" width="84" height="17"/>
+                                <rect key="frame" x="91" y="33" width="84" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Clarity v0.3.2" id="RDZ-dH-HTg">
                                     <font key="font" metaFont="system"/>
@@ -758,16 +760,28 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vdk-Sc-HRM">
+                                <rect key="frame" x="69" y="9" width="128" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" title="Check for Updates" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3DV-TK-1NP">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkUpdate:" target="XfG-lQ-9wD" id="E6e-yz-NnZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="startAtLogin" destination="B5g-B4-VUS" id="s9r-TM-quP"/>
                         <outlet property="statusbarMenu" destination="kuV-Tm-BbH" id="Ehd-NW-4mj"/>
+                        <outlet property="versionLabel" destination="gfm-CG-ccF" id="yXS-Jr-ZKD"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="535"/>
+            <point key="canvasLocation" x="69" y="535"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

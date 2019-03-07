@@ -50,7 +50,9 @@ class TimeTracker {
         status.appId = app?.bundleIdentifier ?? ""
         status.appName = app?.localizedName ?? ""
         IconUtil.save(appId: status.appId, img: app!.icon!)
-
+        
+        return status
+        // -------- 暂时不搜集更多信息 ----------     
         // See if we have accessibility permissions, and if not, prompt the user to
         // visit System Preferences.
         let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() : permissionPrompt]

@@ -105,6 +105,9 @@ extension PopoverViewController {
         var dict = [String: StatsItem]()
         for i in 0..<statusLogs.count {
             let log = statusLogs[i]
+            if(log.status == "idle") {
+                continue
+            }
             if !dict.keys.contains(log.appName) {
                 dict[log.appName] = StatsItem(appId: log.appId, appName: log.appName, count: 0, time: 0)
             }
