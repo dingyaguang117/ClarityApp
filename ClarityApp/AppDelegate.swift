@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        checkRunning()
         setupStatusBar()
         setupPopover()
         setupLauncher()
@@ -38,6 +39,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         queue.async {
             let server = Server()
             server.run(port: 9877)
+        }
+    }
+    
+    func checkRunning() {
+        let running   = NSWorkspace.shared.runningApplications;
+        for app in running {
+            if app.bundleIdentifier == Bundle.main.bundleIdentifier
+            {
+                print("already running")
+                NSApplication.shared.terminate(nil)
+            }
         }
     }
 
