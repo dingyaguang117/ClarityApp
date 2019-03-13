@@ -39,10 +39,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let newPath = NSString.path(withComponents: components);
             print(newPath)
             NSWorkspace.shared.launchApplication(newPath);
-        }else{
-         
-            self.terminate();
         }
+        self.terminate();
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -53,7 +51,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //      NSLog("I'll be back!")
         NSApp.terminate(nil)
     }
-
 
 }
 

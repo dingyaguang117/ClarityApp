@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func checkRunning() {
         let running   = NSWorkspace.shared.runningApplications;
         for app in running {
-            if app.bundleIdentifier == Bundle.main.bundleIdentifier
+            if app.bundleIdentifier == Bundle.main.bundleIdentifier && app.processIdentifier != ProcessInfo.processInfo.processIdentifier
             {
                 print("already running")
                 NSApplication.shared.terminate(nil)
