@@ -90,35 +90,37 @@ extension PopoverViewController {
     }
     
     func loadStats() {
-        stats = [StatsItem]()
-        let realm = try! Realm()
+        autoreleasepool {
+            stats = [StatsItem]()
         
-        let timeToday = Date(timeIntervalSinceNow: TimeInterval(-(Int(Date().timeIntervalSince1970) % 86400)))
-        var statusLogs = realm.objects(StatusLog.self).filter("start > %@", Int(timeToday.timeIntervalSince1970)).toArray(type: StatusLog.self)
-        // TODO: calc lastLog
-        //        let app = NSApplication.shared.delegate as! AppDelegate
-//        if(app.lastLog != nil) {
-//            statusLogs.append(app.lastLog!)
-//        }
-//
+            let realm = try! Realm()
+            
+            let timeToday = Date(timeIntervalSinceNow: TimeInterval(-(Int(Date().timeIntervalSince1970) % 86400)))
+            var statusLogs = realm.objects(StatusLog.self).filter("start > %@", Int(timeToday.timeIntervalSince1970)).toArray(type: StatusLog.self)
+            // TODO: calc lastLog
+            //        let app = NSApplication.shared.delegate as! AppDelegate
+    //        if(app.lastLog != nil) {
+    //            statusLogs.append(app.lastLog!)
+    //        }
+    //
 
-        var dict = [String: StatsItem]()
-        for i in 0..<statusLogs.count {
-            let log = statusLogs[i]
-            if(log.status == "idle") {
-                continue
+            var dict = [String: StatsItem]()
+            for i in 0..<statusLogs.count {
+                let log = statusLogs[i]
+                if(log.status == "idle") {
+                    continue
+                }
+                if !dict.keys.contains(log.appName) {
+                    dict[log.appName] = StatsItem(appId: log.appId, appName: log.appName, count: 0, time: 0)
+                }
+                dict[log.appName]!.time += log.duration
+                dict[log.appName]!.count += 1
             }
-            if !dict.keys.contains(log.appName) {
-                dict[log.appName] = StatsItem(appId: log.appId, appName: log.appName, count: 0, time: 0)
+     
+            for item in dict.sorted(by: {$0.1.time > $1.1.time}) {
+                stats?.append(item.value)
             }
-            dict[log.appName]!.time += log.duration
-            dict[log.appName]!.count += 1
         }
- 
-        for item in dict.sorted(by: {$0.1.time > $1.1.time}) {
-            stats?.append(item.value)
-        }
-    
     }
     
 }
@@ -141,7 +143,6 @@ extension PopoverViewController : NSTableViewDataSource, NSTableViewDelegate{
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        NSLog("number %@", tableView)
         return min(stats!.count, 10) ;
     }
     

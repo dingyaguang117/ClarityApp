@@ -20,15 +20,16 @@ class Server {
             let start = query["start"]
             let end = query["end"]
             var data = [Any]()
-            
-            let realm = try! Realm()
-            realm.refresh()
-            
-            var startTime = Int(start ?? "0")
-            if startTime != nil {
-                var items = realm.objects(StatusLog.self).filter("start >= %@", startTime)
-                for item in items {
-                    data.append(item.toJSON())
+            autoreleasepool {
+                let realm = try! Realm()
+                realm.refresh()
+                
+                var startTime = Int(start ?? "0")
+                if startTime != nil {
+                    var items = realm.objects(StatusLog.self).filter("start >= %@", startTime)
+                    for item in items {
+                        data.append(item.toJSON())
+                    }
                 }
             }
             var result: [String : Any] = ["code": 0, "data": data]

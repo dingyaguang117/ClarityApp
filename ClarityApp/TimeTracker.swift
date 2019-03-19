@@ -95,7 +95,6 @@ class TimeTracker {
             NSLog("write log %@ %@", log.status, log.appName)
             realm.add(log)
         }
-
     }
     
     func log(status : SystemStatus) {
