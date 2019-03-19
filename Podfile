@@ -8,5 +8,4 @@ target 'ClarityApp' do
   # Pods for ClarityApp
   pod 'Swifter', '~> 1.4.5'
   pod 'HandyJSON', '~> 4.2.0'
-  pod 'Sparkle', '~> 1.21.0'
 end

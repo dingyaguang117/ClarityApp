@@ -9,13 +9,13 @@
 import AppKit
 import Cocoa
 import ServiceManagement
-import Sparkle
+//import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
 
-    @IBOutlet weak var Updater: SUUpdater!
+//    @IBOutlet weak var Updater: SUUpdater!
     @IBOutlet var statusMenu: NSMenu?;
     var statusItem: NSStatusItem?;
     let popover = NSPopover()

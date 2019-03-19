@@ -17,7 +17,7 @@ class SettingViewController: NSViewController {
     
     @IBAction func checkUpdate(_ sender: Any) {
         let delegate = NSApplication.shared.delegate as! AppDelegate
-        delegate.Updater.checkForUpdates(nil)
+//        delegate.Updater.checkForUpdates(nil)
     }
     
     @IBAction func startAtLoginChanged(_ sender: NSButton) {
