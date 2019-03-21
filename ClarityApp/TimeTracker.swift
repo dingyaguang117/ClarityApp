@@ -49,7 +49,11 @@ class TimeTracker {
         
         status.appId = app?.bundleIdentifier ?? ""
         status.appName = app?.localizedName ?? ""
-        IconUtil.save(appId: status.appId, img: app!.icon!)
+
+        autoreleasepool {
+            IconUtil.save(appId: status.appId, img: app!.icon!)
+        }
+        
         
         return status
         // -------- 暂时不搜集更多信息 ----------     

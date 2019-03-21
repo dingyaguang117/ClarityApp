@@ -35,6 +35,11 @@ class Server {
             var result: [String : Any] = ["code": 0, "data": data]
             return HttpResponse.ok(.json(result as AnyObject))
         }
+        
+        self.server["/hello"] = {
+            request in
+            return HttpResponse.ok(.text("clarity"))
+        }
     }
     
     
