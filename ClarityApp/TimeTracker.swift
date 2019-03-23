@@ -126,7 +126,7 @@ class TimeTracker {
     func run() {
         print(realm.configuration.fileURL ?? "")
         while true {
-            var status = inspect()
+            let status = inspect()
 //            print(status)
             if(status != nil) {
                 log(status: status!)

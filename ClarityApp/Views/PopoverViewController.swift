@@ -31,7 +31,7 @@ extension PopoverViewController {
 
         let vc = storyboard.instantiateController(withIdentifier: "PreferenceID") as! SettingViewController
 
-        var window = NSWindow(contentViewController: vc)
+        let window = NSWindow(contentViewController: vc)
         window.makeKeyAndOrderFront(self)
         let controller = NSWindowController(window: window)
         NSApp.activate(ignoringOtherApps: true)
@@ -153,7 +153,7 @@ extension PopoverViewController : NSTableViewDataSource, NSTableViewDelegate{
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var statsItem = stats![row]
+        let statsItem = stats![row]
         var image = NSImage(named: "monitor")
         var text: String = ""
         var cellIdentifier: String = ""

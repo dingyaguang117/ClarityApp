@@ -16,7 +16,7 @@ class SettingViewController: NSViewController {
     @IBOutlet weak var versionLabel: NSTextField!
     
     @IBAction func checkUpdate(_ sender: Any) {
-        let delegate = NSApplication.shared.delegate as! AppDelegate
+//        let delegate = NSApplication.shared.delegate as! AppDelegate
 //        delegate.Updater.checkForUpdates(nil)
     }
     
