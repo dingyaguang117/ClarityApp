@@ -3,7 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "AppDelegate.checkAutoStart():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "resp">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "AppDelegate.OpenDashboard(_:):AppDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PopoverViewController.loadStats():PopoverViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "Date().timeIntervalSince1970">
+            </PersistentString>
+            <PersistentString
+               value = "NSTimeZone.system.secondsFromGMT()">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "AppDelegate.addStatusItem():AppDelegate.swift">
@@ -28,10 +47,10 @@
             <PersistentString
                value = "items[i]">
             </PersistentString>
+            <PersistentString
+               value = "resp.headers()">
+            </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in PopoverViewController.tableView.getter:PopoverViewController.swift">
       </ContextState>
       <ContextState
          contextName = "AppDelegate.setupLauncher():AppDelegate.swift">
@@ -42,13 +61,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in PopoverViewController.tableView.getter:PopoverViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "PopoverViewController.viewDidLoad():PopoverViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "tableView.frame">
+               value = "self.view.bounds">
             </PersistentString>
             <PersistentString
-               value = "self.view.bounds">
+               value = "tableView.frame">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -57,6 +79,14 @@
          <PersistentStrings>
             <PersistentString
                value = "statusbarMenu">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AppDelegate.applicationDidFinishLaunching(_:):AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "resp">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -25,6 +25,7 @@
 		35748D1321E65AE10011ADEA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35748D1221E65AE10011ADEA /* SettingViewController.swift */; };
 		35748D1521E65AE30011ADEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1421E65AE30011ADEA /* Assets.xcassets */; };
 		35748D1821E65AE30011ADEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35748D1621E65AE30011ADEA /* Main.storyboard */; };
+		357A40DB2258768300FCDB91 /* pod.sh in Resources */ = {isa = PBXBuildFile; fileRef = 357A40DA2258768300FCDB91 /* pod.sh */; };
 		357BFC5A21E6604B003E7A9D /* TimeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357BFC5921E6604B003E7A9D /* TimeTracker.swift */; };
 		3595B2C321F20EF00083521F /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3595B2C221F20EF00083521F /* ServiceManagement.framework */; };
 		3595B2C521F20EF90083521F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3595B2C421F20EF90083521F /* Cocoa.framework */; };
@@ -90,6 +91,7 @@
 		35748D1721E65AE30011ADEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35748D1921E65AE30011ADEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35748D1A21E65AE30011ADEA /* ClarityApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClarityApp.entitlements; sourceTree = "<group>"; };
+		357A40DA2258768300FCDB91 /* pod.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = pod.sh; sourceTree = "<group>"; };
 		357BFC5921E6604B003E7A9D /* TimeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTracker.swift; sourceTree = "<group>"; };
 		358928A12241259B00BEF082 /* sign.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = sign.sh; sourceTree = "<group>"; };
 		3595B2C221F20EF00083521F /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				358928A12241259B00BEF082 /* sign.sh */,
+				357A40DA2258768300FCDB91 /* pod.sh */,
 			);
 			path = script;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				7C4D86AF9A84086CE550EDC4 /* [CP] Embed Pods Frameworks */,
 				351404CE21E7A2E100A89755 /* Embed Frameworks */,
 				355EC85421F2003400FD22F1 /* Copy Files */,
+				357A40DC22587BFD00FCDB91 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -341,6 +345,7 @@
 			files = (
 				354E93CB222820F10055294F /* PopoverViewController.xib in Resources */,
 				35748D1521E65AE30011ADEA /* Assets.xcassets in Resources */,
+				357A40DB2258768300FCDB91 /* pod.sh in Resources */,
 				35748D1821E65AE30011ADEA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +353,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		357A40DC22587BFD00FCDB91 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nLOCATION=\"${BUILT_PRODUCTS_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\n\n# By default, use the configured code signing identity for the project/target\nIDENTITY=\"${CODE_SIGN_IDENTITY}\"\nif [ \"$IDENTITY\" == \"\" ]\nthen\n# If a code signing identity is not specified, use ad hoc signing\nIDENTITY=\"-\"\nfi\ncodesign --verbose --force --deep -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A/Resources/AutoUpdate.app\"\ncodesign --verbose --force -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
+		};
 		7C4D86AF9A84086CE550EDC4 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,6 +380,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ClarityApp/Pods-ClarityApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework",
+				"${PODS_ROOT}/Sparkle/Sparkle.framework.dSYM",
 				"${BUILT_PRODUCTS_DIR}/Swifter/Swifter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -365,6 +389,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparkle.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Sparkle.framework.dSYM",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swifter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

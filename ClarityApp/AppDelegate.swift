@@ -9,13 +9,13 @@
 import AppKit
 import Cocoa
 import ServiceManagement
-//import Sparkle
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
 
-//    @IBOutlet weak var Updater: SUUpdater!
+    @IBOutlet weak var Updater: SUUpdater!
     @IBOutlet var statusMenu: NSMenu?;
     var statusItem: NSStatusItem?;
     let popover = NSPopover()
@@ -29,6 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         setupStatusBar()
         setupPopover()
         setupLauncher()
+        checkAutoStart()
         
         // Insert code here to initialize your application
         let queue = DispatchQueue(label: "com.co-ding.clarityapp", qos: .unspecified, attributes: .concurrent)
@@ -52,6 +53,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
+    
+    func checkAutoStart() {
+        if(!LauncherHelper.shared.launchAtStartup) {
+            let alert = NSAlert()
+            alert.messageText = "Do you want ClarityApp to start at login?"
+            alert.addButton(withTitle: "Yes")
+            alert.addButton(withTitle: "No")
+            let resp = alert.runModal()
+            if(resp.rawValue == 1000) {
+                LauncherHelper.shared.launchAtStartup = true
+            }
+        }
+    }
 
 }
 
@@ -62,8 +76,8 @@ extension AppDelegate {
     
 
     func setupLauncher() {
-        LauncherHelper.shared.launchAtStartup = true
-        statusMenu?.item(withTag: 2)?.state = .on
+//        LauncherHelper.shared.launchAtStartup = true
+//        statusMenu?.item(withTag: 2)?.state = .on
         
         for app in NSWorkspace.shared.runningApplications {
             if app.bundleIdentifier == LauncherHelper.Identifier    {

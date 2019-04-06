@@ -30,7 +30,7 @@ struct SystemStatus {
 }
 
 class TimeTracker {
-    let IDLE_TIME = 60
+    let IDLE_TIME = 60 * 5
     var lastLog : StatusLog?
     var permissionPrompt = true
     let realm = try! Realm()
@@ -49,11 +49,13 @@ class TimeTracker {
         
         status.appId = app?.bundleIdentifier ?? ""
         status.appName = app?.localizedName ?? ""
+        if(status.appId == "com.apple.loginwindow") {
+            status.status = "idle"
+        }
 
         autoreleasepool {
             IconUtil.save(appId: status.appId, img: app!.icon!)
         }
-        
         
         return status
         // -------- 暂时不搜集更多信息 ----------     

@@ -1,20 +1,24 @@
 PODS:
   - HandyJSON (4.2.1)
+  - Sparkle (1.21.0)
   - Swifter (1.4.5)
 
 DEPENDENCIES:
   - HandyJSON (~> 4.2.0)
+  - Sparkle
   - Swifter (~> 1.4.5)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - HandyJSON
+    - Sparkle
     - Swifter
 
 SPEC CHECKSUMS:
   HandyJSON: d0c5fc80204f29056d59d3e5c4587fa0b16b60a8
+  Sparkle: 24f10673813bf7c32d73ffa8a775590adefc40df
   Swifter: eb2bc1d192a1c09169c7fefd01971565fa940521
 
-PODFILE CHECKSUM: 568828f78ee80e8591eae82ced8e0b16dfeb9d5e
+PODFILE CHECKSUM: eebcece4354b5622dec97762fb3f62cf4ef3ab7a
 
 COCOAPODS: 1.5.3

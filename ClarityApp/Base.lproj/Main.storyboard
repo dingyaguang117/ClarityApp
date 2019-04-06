@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -716,7 +717,7 @@
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -732,17 +733,16 @@
             </objects>
             <point key="canvasLocation" x="114" y="102"/>
         </scene>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Setting" storyboardIdentifier="PreferenceID" id="XfG-lQ-9wD" customClass="SettingViewController" customModule="ClarityApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Settings" storyboardIdentifier="PreferenceID" id="XfG-lQ-9wD" customClass="SettingViewController" customModule="ClarityApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="266" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="266" height="272"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-B4-VUS">
-                                <rect key="frame" x="18" y="234" width="106" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B5g-B4-VUS">
+                                <rect key="frame" x="93" y="236" width="106" height="18"/>
                                 <buttonCell key="cell" type="check" title="Start At Login" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dKX-ZL-fRd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -752,7 +752,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gfm-CG-ccF">
-                                <rect key="frame" x="91" y="33" width="84" height="17"/>
+                                <rect key="frame" x="91" y="9" width="84" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Clarity v0.3.2" id="RDZ-dH-HTg">
                                     <font key="font" metaFont="system"/>
@@ -761,7 +761,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vdk-Sc-HRM">
-                                <rect key="frame" x="69" y="9" width="128" height="23"/>
+                                <rect key="frame" x="69" y="29" width="128" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="roundTextured" title="Check for Updates" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3DV-TK-1NP">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -771,7 +771,21 @@
                                     <action selector="checkUpdate:" target="XfG-lQ-9wD" id="E6e-yz-NnZ"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fqN-9n-f0K">
+                                <rect key="frame" x="30" y="236" width="59" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="General: " id="1uZ-YH-vHf">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="B5g-B4-VUS" firstAttribute="leading" secondItem="fqN-9n-f0K" secondAttribute="trailing" constant="8" id="GJA-bi-D1K"/>
+                            <constraint firstItem="B5g-B4-VUS" firstAttribute="centerY" secondItem="fqN-9n-f0K" secondAttribute="centerY" id="IXL-Be-HBP"/>
+                            <constraint firstItem="fqN-9n-f0K" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="32" id="cYZ-Ud-K4k"/>
+                            <constraint firstItem="fqN-9n-f0K" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="19" id="g4G-3X-N8T"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="startAtLogin" destination="B5g-B4-VUS" id="s9r-TM-quP"/>
@@ -781,10 +795,10 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="535"/>
+            <point key="canvasLocation" x="69" y="536"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cd3-vY-aEX"/>
+        <segue reference="cq2-FE-JQM"/>
     </inferredMetricsTieBreakers>
 </document>

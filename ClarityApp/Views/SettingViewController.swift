@@ -16,14 +16,16 @@ class SettingViewController: NSViewController {
     @IBOutlet weak var versionLabel: NSTextField!
     
     @IBAction func checkUpdate(_ sender: Any) {
-//        let delegate = NSApplication.shared.delegate as! AppDelegate
-//        delegate.Updater.checkForUpdates(nil)
+        let delegate = NSApplication.shared.delegate as! AppDelegate
+        delegate.Updater.checkForUpdates(nil)
     }
     
     @IBAction func startAtLoginChanged(_ sender: NSButton) {
         if sender.state == .on {
+            print("start auto start ")
             LauncherHelper.shared.launchAtStartup = true
         }else {
+            print("stop auto start ")
             LauncherHelper.shared.launchAtStartup = false
         }
         
