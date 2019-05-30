@@ -14,6 +14,7 @@ import Foundation
 
 class Server {
     let server : HttpServer
+    let delegate = NSApplication.shared.delegate as! AppDelegate
     
     init() {
         self.server = HttpServer()
@@ -42,6 +43,13 @@ class Server {
         self.server["/hello"] = {
             request in
             return HttpResponse.raw(200, "OK", self.headers(), { writer in try writer.write([UInt8]("clarity".utf8))})
+        }
+        
+        self.server["/status-now"] = {
+            request in
+            let result: [String : Any] = ["code": 0, "data": self.delegate.lastLog?.toJSON()]
+            let rawResult = try! JSONSerialization.data(withJSONObject: result)
+            return HttpResponse.raw(200, "OK", self.headers(), { writer in try writer.write(rawResult)})
         }
     }
     

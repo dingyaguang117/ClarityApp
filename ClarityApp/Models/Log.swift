@@ -11,7 +11,7 @@ import RealmSwift
 import HandyJSON
 
 
-class StatusLog : Object, HandyJSON{
+class StatusLog : Object, HandyJSON, NSCopying{
     @objc dynamic var status: String = ""
     @objc dynamic var appId: String = ""
     @objc dynamic var appName: String = ""
@@ -23,5 +23,18 @@ class StatusLog : Object, HandyJSON{
     
     override static func indexedProperties() -> [String] {
         return ["start"]
+    }
+    
+    func copy(with: NSZone? = nil) -> Any {
+        let newobj = StatusLog()
+        newobj.status = self.status
+        newobj.appId = self.appId
+        newobj.appName = self.appName
+        newobj.appVersion = self.appVersion
+        newobj.windowTitle = self.windowTitle
+        newobj.end = self.end
+        newobj.start = self.start
+        newobj.duration = self.duration
+        return newobj
     }
 }

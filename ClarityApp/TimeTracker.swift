@@ -35,7 +35,7 @@ class TimeTracker {
     var permissionPrompt = true
     let realm = try! Realm()
     
-    func inspect() -> SystemStatus? {
+    func inspect(app: NSRunningApplication?) -> SystemStatus? {
         var status : SystemStatus = SystemStatus()
         
         status.idle = Int32(SystemIdleTime() ?? 0)
@@ -44,7 +44,9 @@ class TimeTracker {
         }
         
         // Get the process ID of the frontmost application.
-        let app = NSWorkspace.shared.frontmostApplication
+        if(app == nil) {
+            app = NSWorkspace.shared.frontmostApplication
+        }
         let pid = app!.processIdentifier
         
         status.appId = app?.bundleIdentifier ?? ""
@@ -125,11 +127,25 @@ class TimeTracker {
         lastLog?.duration = lastLog!.end - lastLog!.start
     }
     
+    @objc func printMe(notification: NSNotification) {
+        let app = notification.userInfo!["NSWorkspaceApplicationKey"] as! NSRunningApplication
+        print(app.localizedName!)
+    }
+    
+    
     func run() {
+        let delegate = NSApplication.shared.delegate as! AppDelegate
         print(realm.configuration.fileURL ?? "")
+        
+//        NSWorkspace.shared.notificationCenter.addObserver(self,
+//          selector: #selector(printMe(notification:)),
+//          name: NSWorkspace.didActivateApplicationNotification,
+//          object:nil)
+
         while true {
-            let status = inspect()
-//            print(status)
+            let status = inspect(app: nil)
+            print(status?.appName)
+            delegate.lastLog = lastLog?.copy() as! StatusLog?
             if(status != nil) {
                 log(status: status!)
             }
