@@ -65,9 +65,13 @@ class IconUtil {
     }
     
     
+    static func iconDirectory() -> URL {
+        return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent(Bundle.main.bundleIdentifier!).appendingPathComponent("icons")
+    }
+    
     static func load(appId: String) -> NSImage? {
         let filename = appId + ".png"
-        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent(Bundle.main.bundleIdentifier!).appendingPathComponent("icons")
+        let path = iconDirectory()
         let fullpath = path.appendingPathComponent(filename)
         
         

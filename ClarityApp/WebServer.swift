@@ -51,6 +51,24 @@ class Server {
             let rawResult = try! JSONSerialization.data(withJSONObject: result)
             return HttpResponse.raw(200, "OK", self.headers(), { writer in try writer.write(rawResult)})
         }
+        
+        
+        self.server["/icon/:path"] = shareFilesFromDirectory(IconUtil.iconDirectory().path)
+        
+//        self.server["/icon/:path"] = { r in
+//            guard let fileRelativePath = r.params.first else {
+//                return .notFound
+//            }
+//
+//            if let file = try? (IconUtil.iconDirectory().path + String.pathSeparator + fileRelativePath.value + ".png").openForReading() {
+//                let mimeType = fileRelativePath.value.mimeType();
+//                return .raw(200, "OK", ["Content-Type": mimeType], { writer in
+//                    try? writer.write(file)
+//                    file.close()
+//                })
+//            }
+//            return .notFound
+//        }
     }
     
     func headers() ->  [String: String] {
